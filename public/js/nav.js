@@ -1,47 +1,35 @@
-const newFormHandler = async (event) => {
+const logout = async (event) => {
   event.preventDefault();
+  const response = await fetch(`/api/users/logout`, {
+    headers: { 'Content-Type': 'application/json' },
+    method: 'POST',
+  });
 
-  const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
-
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/projects`, {
-      method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create project');
-    }
+  if (response.ok) {
+    document.location.replace('/');
+  } else {
+    alert('Failed to logout');
   }
-};
-
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
-
-    const response = await fetch(`/api/projects/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete project');
-    }
-  }
-};
+}
 
 document
-  .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
+  .querySelector('.login-nav')
+  .addEventListener('click', () => {
+    document.location.replace('/login');
+  });
 
 document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);
+  .querySelector('.home-nav')
+  .addEventListener('click', () => {
+    document.location.replace('/');
+  });
+
+document
+  .querySelector('.dashboard-nav')
+  .addEventListener('click', () => {
+    document.location.replace('/dashboard');
+  });
+
+  document
+  .querySelector('.logout-nav')
+  .addEventListener('click', logout);
