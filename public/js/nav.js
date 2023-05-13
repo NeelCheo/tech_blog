@@ -1,16 +1,17 @@
-const logout = async (event) => {
+document.querySelector('#logout-nav').addEventListener('click', async (event) => {
   event.preventDefault();
-  const response = await fetch(`/api/users/logout`, {
-    headers: { 'Content-Type': 'application/json' },
-    method: 'POST',
+
+  const response = await fetch('/api/users/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
   });
 
   if (response.ok) {
-    document.location.replace('/');
+      document.location.replace('/');
   } else {
-    alert('Failed to logout');
+      alert(response.statusText);
   }
-}
+});
 
 document
   .querySelector('#login-nav')
@@ -33,7 +34,3 @@ document
       document.location.replace('/dashboard');
     }
   });
-
-document
-  .querySelector('#logout-nav')
-  .addEventListener('click', logout);
