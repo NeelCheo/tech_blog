@@ -7,6 +7,7 @@ router.get('/', withAuth, async (req, res) => {
     const posts = await Post.findAll();
 
     res.status(200).json(posts);
+    console.log(posts);
   } catch (err) {
     res.status(400).json(err);
   }
