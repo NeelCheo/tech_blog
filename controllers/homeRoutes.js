@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     res.render('homepage', { 
       posts, 
       logged_in: req.session.logged_in,
-      scripts: ['home'] // Add this line
+      scripts: ['home'] 
     });
   } catch (err) {
     res.status(500).json(err);
@@ -41,7 +41,7 @@ router.get('/post/:id', async (req, res) => {
     res.render('post', {
       ...post,
       logged_in: req.session.logged_in,
-      scripts: ['comment'] // Add this line
+      scripts: ['comment'] 
     });
   } catch (err) {
     res.status(500).json(err);
@@ -52,7 +52,13 @@ router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
+      include: [{ model: Post,
+        include: [
+          {
+            model: User,
+            attributes: ['username'],
+          },
+        ], }],
     });
 
     const user = userData.get({ plain: true });
@@ -60,7 +66,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     res.render('dashboard', {
       ...user,
       logged_in: true,
-      scripts: ['dashboard'] // Add this line
+      scripts: ['dashboard']
     });
   } catch (err) {
     res.status(500).json(err);
