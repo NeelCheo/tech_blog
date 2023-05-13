@@ -1,14 +1,17 @@
 [
   {
     "title": "testing the posts",
-    "body": "this is the body of this test post"
+    "body": "this is the body of this test post",
+    "user_id": 1
   },
   {
     "title": "another test post",
-    "body": "seeing how multipel posts look like"
+    "body": "seeing how multiple posts look like",
+    "user_id": 2
   },
   {
     "title": "the third post",
-    "body": "wow this actually works im suprised"
+    "body": "wow this actually works I'm surprised",
+    "user_id": 3
   }
 ]
