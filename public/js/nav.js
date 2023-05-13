@@ -13,23 +13,27 @@ const logout = async (event) => {
 }
 
 document
-  .querySelector('.login-nav')
+  .querySelector('#login-nav')
   .addEventListener('click', () => {
     document.location.replace('/login');
   });
 
 document
-  .querySelector('.home-nav')
+  .querySelector('#home-nav')
   .addEventListener('click', () => {
     document.location.replace('/');
   });
 
 document
-  .querySelector('.dashboard-nav')
+  .querySelector('#dashboard-nav')
   .addEventListener('click', () => {
-    document.location.replace('/dashboard');
+    if (!document.querySelector('#logout-nav')) {
+      document.location.replace('/login');
+    } else {
+      document.location.replace('/dashboard');
+    }
   });
 
-  document
-  .querySelector('.logout-nav')
+document
+  .querySelector('#logout-nav')
   .addEventListener('click', logout);
