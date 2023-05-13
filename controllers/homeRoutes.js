@@ -79,4 +79,14 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/signup', (req, res) => {
+  // Check if user is already logged in. If they are, redirect them to another page
+  if (req.session.logged_in) {
+    res.redirect('/'); 
+    return;
+  }
+  res.render('signup');
+});
+
+
 module.exports = router;
