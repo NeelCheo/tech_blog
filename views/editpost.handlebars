@@ -1,0 +1,10 @@
+<h1>Edit Post</h1>
+
+<form class="post-form" id="post-form">
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" name="title" value="{{post.title}}" required><br>
+  <label for="body">Body:</label><br>
+  <textarea id="body" name="body" required>{{post.body}}</textarea><br>
+  <input type="submit" value="Update">
+  <button id="delete-post">Delete</button>
+</form>
