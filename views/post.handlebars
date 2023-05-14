@@ -1,11 +1,7 @@
-<h1>{{post.title}}</h1>
-<p>Posted by {{post.username}} on {{post.created_at}}</p>
-<p>{{post.body}}</p>
-
+<h1>{{title}}</h1>
+<p>Posted by {{user.username}}</p>
+<p>{{body}}</p>
 <h2>Comments</h2>
-{{#each post.comments as |comment|}}
-  <div class="comment">
-    <p>{{comment.body}}</p>
-    <p>Posted by {{comment.username}} on {{comment.created_at}}</p>
-  </div>
+{{#each comments}}
+  <p>{{this.body}} - Posted by {{this.user.username}}</p>
 {{/each}}
