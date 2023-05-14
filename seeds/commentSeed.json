@@ -1,17 +1,22 @@
 [
   {
-    "body": "this is the body of this test post",
-    "user_id": 1,
+    "body": "this is the body of this test comment",
+    "user_id": 3,
     "post_id": 1
   },
   {
-    "body": "seeing how multipel posts look like",
-    "user_id": 2,
+    "body": "seeing how multipel coments look like",
+    "user_id": 3,
     "post_id": 2
   },
   {
-    "body": "wow this actually works im surprised",
-    "user_id": 3,
+    "body": "seeing how multipel coments look like",
+    "user_id": 1,
+    "post_id": 2
+  },
+  {
+    "body": "wow this comment actually works im surprised",
+    "user_id": 2,
     "post_id": 3
   }
 ]
