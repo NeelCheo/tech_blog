@@ -3,5 +3,12 @@
 <p>{{body}}</p>
 <h2>Comments</h2>
 {{#each comments}}
-  <p>{{this.body}} - Posted by {{this.user.username}}</p>
+  <p>{{this.body}} - Posted by {{this.user.username}} on {{format_date this.createdAt}}</p>
 {{/each}}
+
+<h2>Add a Comment</h2>
+<form class="comment-form" id="comment-form">
+  <label for="comment-body">Comment:</label><br>
+  <textarea id="comment-body" name="comment-body" required></textarea><br>
+  <button type="submit" id="submit-button">Submit</button>
+</form>

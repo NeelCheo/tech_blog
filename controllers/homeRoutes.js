@@ -105,4 +105,11 @@ router.get('/signup', (req, res) => {
 });
 
 
+router.get('/newpost', withAuth, (req, res) => {
+  res.render('newpost', {
+    logged_in: req.session.logged_in,
+    scripts: ['newpost'] 
+  });
+});
+
 module.exports = router;
