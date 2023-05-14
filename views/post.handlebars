@@ -1,14 +1,24 @@
-<h1>{{title}}</h1>
-<p>Posted by {{user.username}}</p>
-<p>{{body}}</p>
-<h2>Comments</h2>
-{{#each comments}}
-  <p>{{this.body}} - Posted by {{this.user.username}} on {{format_date this.createdAt}}</p>
-{{/each}}
+<div class="container my-4">
+    <h1 class="text-center mb-4">{{title}}</h1>
+    <p>Posted by {{user.username}}</p>
+    <p>{{body}}</p>
 
-<h2>Add a Comment</h2>
-<form class="comment-form" id="comment-form">
-  <label for="comment-body">Comment:</label><br>
-  <textarea id="comment-body" name="comment-body" required></textarea><br>
-  <button type="submit" id="submit-button">Submit</button>
-</form>
+    <h2 class="mt-5">Comments</h2>
+    {{#each comments}}
+    <div class="card my-2">
+        <div class="card-body">
+            <p class="mb-0">{{this.body}}</p>
+            <small class="text-muted">- Posted by {{this.user.username}} on {{format_date this.createdAt}}</small>
+        </div>
+    </div>
+    {{/each}}
+
+    <h2 class="mt-5">Add a Comment</h2>
+    <form class="comment-form" id="comment-form">
+        <div class="form-group">
+            <label for="comment-body">Comment:</label>
+            <textarea id="comment-body" name="comment-body" class="form-control" required></textarea>
+        </div>
+        <button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
+    </form>
+</div>

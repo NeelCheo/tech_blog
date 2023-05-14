@@ -1,11 +1,15 @@
-<h1>Welcome to Tech Blog</h1>
+<div class="container my-4">
+    <h1 class="text-center mb-4">Welcome to Tech Blog</h1>
 
-{{#each posts as |post|}}
-  <div class="post">
-    <a href="/post/{{post.id}}">
-      <h2>{{post.title}}</h2>
-      <p>Created by {{post.user.username}} on {{format_date post.createdAt}}</p>
-      <p>{{post.body}}</p>
-    </a>
-  </div>
-{{/each}}
+    {{#each posts as |post|}}
+        <div class="card mb-4">
+            <div class="card-body">
+                <a href="/post/{{post.id}}">
+                    <h2 class="card-title">{{post.title}}</h2>
+                    <p class="card-subtitle mb-2 text-muted">Created by {{post.user.username}} on {{format_date post.createdAt}}</p>
+                    <p class="card-text">{{post.body}}</p>
+                </a>
+            </div>
+        </div>
+    {{/each}}
+</div>
